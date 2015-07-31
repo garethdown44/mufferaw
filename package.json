@@ -1,0 +1,27 @@
+{
+  "name": "mufferaw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/logger.js",
+  "dependencies": {
+    "express": "^4.13.1",
+    "colors": "^1.1.2",
+    "moment": "^2.10.6",
+    "node-tweet-stream": "^1.8.2",
+    "socket.io": "^1.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garethdown44/mufferaw.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garethdown44/mufferaw/issues"
+  },
+  "homepage": "https://github.com/garethdown44/mufferaw#readme"
+}
