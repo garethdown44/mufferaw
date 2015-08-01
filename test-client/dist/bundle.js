@@ -7009,25 +7009,30 @@ function toArray(list, index) {
 }
 
 },{}],51:[function(require,module,exports){
-var sender = require('./socket-sender')('http://localhost:8082');
+module.exports = function(addr) {
 
-var logger = module.exports;
+  var sender = require('./socket-sender')(addr);
 
-logger.info = function (text) {
-  sender('info', text);
+  var logger = {};
+
+  logger.info = function (text) {
+    sender('info', text);
+  }
+
+  logger.debug = function (text) {
+    sender('debug', text);
+  };
+
+  logger.warn = function (text) {
+    sender('warn', text);
+  };
+
+  logger.error = function (text) {
+    sender('error', text);
+  };
+
+  return logger;
 }
-
-logger.debug = function (text) {
-  sender('debug', text);
-};
-
-logger.warn = function (text) {
-  sender('warn', text);
-};
-
-logger.error = function (text) {
-  sender('error', text);
-};
 },{"./socket-sender":52}],52:[function(require,module,exports){
 module.exports = function(addr) {
   var socket = require('socket.io-client')(addr);
@@ -16251,7 +16256,7 @@ return jQuery;
 }));
 
 },{}],54:[function(require,module,exports){
-var logger = require('mufferaw');
+var logger = require('mufferaw')('http://localhost:8082');
 var $ = require('jquery');
 
 $(function() {

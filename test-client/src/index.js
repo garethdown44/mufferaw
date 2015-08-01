@@ -1,4 +1,4 @@
-var logger = require('mufferaw');
+var logger = require('mufferaw')('http://localhost:8082');
 var $ = require('jquery');
 
 $(function() {
