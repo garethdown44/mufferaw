@@ -40,6 +40,10 @@ function bundle() {
 
 var serve = require('gulp-serve');
 
-gulp.task('serve', serve());
+gulp.task('serve', serve({port: 3001}));
 
-gulp.task('default', [ 'js', 'serve']);
+var muff = require('gulp-mufferaw');
+
+gulp.task('muff', muff({ port: 8082 }));
+
+gulp.task('default', [ 'js', 'serve', 'muff' ]);

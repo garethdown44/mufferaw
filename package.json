@@ -2,7 +2,7 @@
   "name": "mufferaw",
   "version": "1.0.0",
   "description": "",
-  "main": "src/logger.js",
+  "main": "logger.js",
   "dependencies": {
     "express": "^4.13.1",
     "colors": "^1.1.2",
