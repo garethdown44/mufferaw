@@ -7,5 +7,13 @@ logger.info = function (text) {
 }
 
 logger.debug = function (text) {
-  sender('debug', text)
+  sender('debug', text);
+};
+
+logger.warn = function (text) {
+  sender('warn', text);
+};
+
+logger.error = function (text) {
+  sender('error', text);
 };

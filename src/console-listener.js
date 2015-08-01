@@ -39,12 +39,26 @@ io.on('connection', function (socket) {
 
     var date = moment(data.date).format('HH:mm:ss');
 
-    var message = colors.error('[' + data.level + '] ') + colors.grey(date) + ': ' + data.message;
+    var message = colors.grey(date) + ': ' + data.message;
+    var level = '';
 
     switch (data.level) {
       case 'info':
-        console.info(message);
+        level = colors.info('[' + data.level + '] ');
         break;
+
+      case 'error':
+        level = colors.error('[' + data.level + '] ');
+        break;
+
+      case 'debug':
+        level = colors.debug('[' + data.level + '] ');
+        break;
+
+      default:
+        level = '[' + data.level + ']';
     }
+
+    console.log(level + message);
   });
 });

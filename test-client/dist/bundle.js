@@ -7018,7 +7018,15 @@ logger.info = function (text) {
 }
 
 logger.debug = function (text) {
-  sender('debug', text)
+  sender('debug', text);
+};
+
+logger.warn = function (text) {
+  sender('warn', text);
+};
+
+logger.error = function (text) {
+  sender('error', text);
 };
 },{"./socket-sender":52}],52:[function(require,module,exports){
 var socket = require('socket.io-client')('http://localhost:8081');
@@ -16244,12 +16252,17 @@ var $ = require('jquery');
 
 $(function() {
 
-  $('#mybutton').click(function(e) {
-    e.preventDefault();
+  $('#error-button').click(function(e) {
+    logger.error('an error occurred');
+  });
 
+  $('#info-button').click(function(e) {
     logger.info('you clicked a button');
   });
 
+  $('#debug-button').click(function(e) {
+    logger.debug('some debug information');
+  });
 });
 },{"jquery":53,"mufferaw":51}]},{},[54])
 
