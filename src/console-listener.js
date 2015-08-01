@@ -1,10 +1,13 @@
+module.exports.run = function(port) {
+
 var app = require('http').createServer(handler)
 var io = require('socket.io')(app);
 var fs = require('fs');
 var colors = require('colors/safe');
 var moment = require('moment');
 
-app.listen(8081);
+console.log('listening on port: ' + port);
+app.listen(port);
 
 function handler (req, res) {
   fs.readFile(__dirname + '/index.html',
@@ -62,3 +65,4 @@ io.on('connection', function (socket) {
     console.log(level + message);
   });
 });
+};

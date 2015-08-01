@@ -1,1 +1,3 @@
-node src/console-listener.js
+#!/usr/bin/env node
+var port = process.env.port || process.argv[2] || 8081;
+require('./src/console-listener').run(port);

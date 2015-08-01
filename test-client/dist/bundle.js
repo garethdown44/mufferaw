@@ -7009,7 +7009,7 @@ function toArray(list, index) {
 }
 
 },{}],51:[function(require,module,exports){
-var sender = require('./socket-sender');
+var sender = require('./socket-sender')('http://localhost:8082');
 
 var logger = module.exports;
 
@@ -7029,10 +7029,14 @@ logger.error = function (text) {
   sender('error', text);
 };
 },{"./socket-sender":52}],52:[function(require,module,exports){
-var socket = require('socket.io-client')('http://localhost:8081');
+module.exports = function(addr) {
+  var socket = require('socket.io-client')(addr);
 
-module.exports = function(level, message) {
-  socket.emit('log', { level: level, message: message, date: new Date() });
+  var send = function(level, message) {
+    socket.emit('log', { level: level, message: message, date: new Date() });
+  };
+
+  return send;
 };
 },{"socket.io-client":1}],53:[function(require,module,exports){
 /*!

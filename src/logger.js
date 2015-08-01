@@ -1,4 +1,4 @@
-var sender = require('./socket-sender');
+var sender = require('./socket-sender')('http://localhost:8082');
 
 var logger = module.exports;
 
