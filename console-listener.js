@@ -38,31 +38,42 @@ colors.setTheme({
 
 io.on('connection', function (socket) {
 
+  console.log('new connection');
+
+  socket.on('message', function(data) {
+    console.log(data);
+    writeLogMessage(data)
+  });
+
   socket.on('log', function (data) {
-
-    var date = moment(data.date).format('HH:mm:ss');
-
-    var message = colors.grey(date) + ': ' + data.message;
-    var level = '';
-
-    switch (data.level) {
-      case 'info':
-        level = colors.info('[' + data.level + '] ');
-        break;
-
-      case 'error':
-        level = colors.error('[' + data.level + '] ');
-        break;
-
-      case 'debug':
-        level = colors.debug('[' + data.level + '] ');
-        break;
-
-      default:
-        level = '[' + data.level + ']';
-    }
-
-    console.log(level + message);
+    writeLogMessage(data);
   });
 });
+
+function writeLogMessage(data) {
+  var date = moment(data.date).format('HH:mm:ss');
+
+  var message = colors.grey(date) + ': ' + data.message;
+  var level = '';
+
+  switch (data.level) {
+    case 'info':
+      level = colors.info('[' + data.level + '] ');
+      break;
+
+    case 'error':
+      level = colors.error('[' + data.level + '] ');
+      break;
+
+    case 'debug':
+      level = colors.debug('[' + data.level + '] ');
+      break;
+
+    default:
+      level = '[' + data.level + ']';
+  }
+
+  console.log(level + message);
+}
+
 };

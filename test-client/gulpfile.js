@@ -42,8 +42,8 @@ var serve = require('gulp-serve');
 
 gulp.task('serve', serve({port: 3001}));
 
-var muff = require('gulp-mufferaw');
+//var muff = require('gulp-mufferaw');
 
-gulp.task('muff', muff({ port: 8082 }));
+//gulp.task('muff', muff({ port: 8082 }));
 
-gulp.task('default', [ 'js', 'serve', 'muff' ]);
+gulp.task('default', [ 'js', 'serve' ]);
