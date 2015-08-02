@@ -10,7 +10,7 @@ module.exports = function(addr) {
 
   logger.debug = function (text) {
     sender('debug', text);
-  };
+  };  
 
   logger.warn = function (text) {
     sender('warn', text);
